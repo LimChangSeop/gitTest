@@ -1,0 +1,70 @@
+package index;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.mysql.cj.jdbc.result.UpdatableResultSet;
+
+import database.DAO.BoardDAO;
+import database.Entity.BoardEntity;
+import dto.InsertBoardDTO;
+import dto.UpdateBoardDTO;
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		// DB에서 Board 테이블의 전체 레코드를 검색해서 출력 
+		// boardEntity는 리스트이기 때문에 아래도 리스트
+		// 인스턴스를 사용하는 녀석이라서 인스턴스를 생성을 먼저 해줘야함.
+		// DAO 인스턴스 생성
+//		BoardDAO dao = new BoardDAO();
+//		List<BoardEntity> findResult = dao.find();
+//		
+//		for(BoardEntity entity: findResult)
+//			System.out.println(entity.toString());
+		
+		Scanner sc = new Scanner(System.in);
+		String path = sc.nextLine();
+		
+		BoardDAO boardDAO = new BoardDAO();
+		
+		// 입력 받아오고 POST /board면 입력 추가 받고
+		if(path.equals("POST /board")) {
+			System.out.println("boardTitle : ");
+			String boardTitle = sc.nextLine();
+			System.out.println("boardContent : ");
+			String boardContent = sc.nextLine();
+			System.out.println("boardWriter : ");
+			int boardWriter = sc.nextInt();
+			
+			// 인스턴스 생성해서
+			InsertBoardDTO insertBoardDTO = new InsertBoardDTO(boardTitle, boardContent, boardWriter);
+			
+			// 미리 만들어놓은 DAO에 넘겨줌
+			int result = boardDAO.insert(insertBoardDTO);
+		} 
+		
+		// find해서 검색해온 애들을 받아서 for-each문으로 출력한 것.
+		else if(path.equals("GET /boardList")) {
+			List<BoardEntity> boardList = boardDAO.find();
+			for(BoardEntity board: boardList)
+				System.out.println(board.toString());
+		} else if(path.equals("PATCH /board")){
+			System.out.println("boardTitle : ");
+			String boardTitle = sc.nextLine();
+			System.out.println("boardContent : ");
+			String boardContent = sc.nextLine();
+			System.out.println("id : ");
+			Integer id = sc.nextInt();
+			
+			UpdateBoardDTO updateBoardDTO = new UpdateBoardDTO(id, boardTitle, boardContent);
+			
+			int result = boardDAO.update(updateBoardDTO);
+			
+			if(result == 1) System.out.println("Update Success");
+			else System.out.println("Update Fail");
+		} else {
+			System.out.println("404 Not found");
+		}
+	}
+}

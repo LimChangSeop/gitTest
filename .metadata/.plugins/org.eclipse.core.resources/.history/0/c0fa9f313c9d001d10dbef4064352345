@@ -1,0 +1,42 @@
+package index;
+
+import java.util.List;
+import java.util.Scanner;
+
+import database.DAO.BoardDAO;
+import database.Entity.BoardEntity;
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		// DB에서 Board 테이블의 전체 레코드를 검색해서 출력 
+		// boardEntity는 리스트이기 때문에 아래도 리스트
+		// 인스턴스를 사용하는 녀석이라서 인스턴스를 생성을 먼저 해줘야함.
+		// DAO 인스턴스 생성
+//		BoardDAO dao = new BoardDAO();
+//		List<BoardEntity> findResult = dao.find();
+//		
+//		for(BoardEntity entity: findResult)
+//			System.out.println(entity.toString());
+		
+		Scanner sc = new Scanner(System.in);
+		String path = sc.nextLine();
+		
+		// 
+		if(path.equals("POST /board")) {
+			System.out.println("boardTitle : ");
+			String boardTitle = sc.nextLine();
+			System.out.println("boardContent : ");
+			String boardContent = sc.nextLine();
+			System.out.println("boardWriter : ");
+			int boardWriter = sc.nextInt();
+			
+			InsertBoardDTO insertBoardDTO = new InsertBoardDTO();
+		} 
+		
+		if(path.equals("GET /boardList")) {
+			
+		}
+	}
+
+}

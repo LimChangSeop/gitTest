@@ -1,0 +1,3 @@
+module mysqlConnect {
+	requires java.sql;
+}
