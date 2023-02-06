@@ -5,25 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>example01</title>
+    <title>Example01</title>
     <link rel="stylesheet" href="./style.css" />
-
-    <!-- class는 여러 군데에서 지정 가능. id는 딱 하나에 대해서만 지정-->
-    <!-- 여기서 모두 지정해준 뒤 들고가서 사용-->
-    <!-- .은 class를 의미해줌.-->
-    <!-- text-drcoration: none은 밑줄 사라짐-->
-   
-
 </head>
-<!-- margin이 0이기때문에 스크롤이 생기면 안됨.-->
 
 <body>
+    <!-- https://nid.naver.com/user2/V2Join?token_sjoin=f6F5bkH54rXHCGe4&langSelect=ko_KR&termsService=on&termsPrivacy=on&termsLocation=Y -->
     <!-- 레이아웃 구성 -->
 
     <!-- 컨테이너 레이아웃 -->
-    <!-- vh : 뷰포트 높이(height)의 1%로 처리, vw : 뷰포트 너비(width)의 1%로 처리-->
-
-    <div style="width: 100vw;">
+    <div>
         <!-- 가운데 레이아웃 -->
         <div>
             <!-- 로고 레이아웃 -->
@@ -32,50 +23,46 @@
                     NAVER
                 </a>
             </div>
-
-            <!-- 컨테이너 레이아웃-->
+            <!-- 컨테이너 레이아웃 -->
             <div id="container">
                 <!-- 아이디 레이아웃 -->
-                <!-- padding은 칸 안에서 여백, margin은 화면에서 여백, border는 테두리-->
                 <div class="content">
                     <div class="input-label">아이디</div>
-                    <div>
-                        <input class="input-style" type="text">
+                    <div class="inline">
+                        <input class="input-style" type="text" />
                     </div>
                 </div>
                 <!-- 비밀번호 레이아웃 -->
                 <div class="content">
                     <div class="input-label">비밀번호</div>
-                    <div>
-                        <input class="input-style" type="password">
+                    <div class="inline">
+                        <input class="input-style" type="password" />
                     </div>
                 </div>
-                <!-- 비밀번호 재확인 레이아웃 -->
+                <!-- 비밀번호 확인 레이아웃 -->
                 <div class="content">
-                    <div class="input-label">비밀번호 재확인</div>
-                    <div>
-                        <input class="input-style" type="password">
+                    <div class="input-label">비밀번호 확인</div>
+                    <div class="inline">
+                        <input class="input-style" type="password" />
                     </div>
-                </div class="content">
+                </div>
                 <!-- 이름 레이아웃 -->
                 <div class="content">
                     <div class="input-label">이름</div>
-                    <div>
-                        <input class="input-style" type="text">
+                    <div class="inline">
+                        <input class="input-style" type="text" />
                     </div>
                 </div>
                 <!-- 생년월일 레이아웃 -->
-                <!-- placehodler : 입력 필드에 사용자가 적절한 값을 입력할 수 있도록 도와주는 짧은 도움말-->
                 <div class="content">
                     <div class="input-label">생년월일</div>
                     <div class="flex">
-                        <!-- style의 display 요소를 inline으로 적용해서 inline형식으로 변경 -->
+                        <!-- style의 display 요소를 inline으로 적용해서 inline 형식으로 변경 -->
                         <div class="flex-1">
                             <input class="input-middle-style" type="number" placeholder="년 (4자리)" />
                         </div>
                         <div class="flex-1">
-                            <!-- input이 아닌 select 태그 사용 -->
-                            <!-- 옵션 메뉴를 제공하는 컨트롤 -->
+                            <!-- select -->
                             <select class="input-middle-style">
                                 <option>월</option>
                                 <option>1</option>
@@ -97,22 +84,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- 성별 레이아웃 -->
-                <div class="content">
-                    <div>성별</div>
-                    <div class="input-label">
-                        <select class="input-style">
-                            <option>남</option>
-                            <option>여</option>
-                        </select>
-                    </div>
-                </div>
                 <!-- 버튼 레이아웃 -->
                 <div class="content">
                     <div class="inline">
-                        <p>
-                            <button class="join-button">가입하기</button>
-                        </p>
+                        <button class="join-button">가입하기</button>
                     </div>
                 </div>
             </div>
